@@ -13,13 +13,13 @@ app.use(fileUpload());
 
 
   const MongoClient = require('mongodb').MongoClient;
-  const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.dix9b.mongodb.net/creativeagency?retryWrites=true&w=majority`;
+  const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.dix9b.mongodb.net/creativeagency1?retryWrites=true&w=majority`;
   const client = new MongoClient(uri, { useNewUrlParser: true , useUnifiedTopology: true });
   client.connect(err => {
-    const adminservices = client.db("creativeagency").collection("admin");
-    const userreviews = client.db("creativeagency").collection("userreview");
-    const userorders = client.db("creativeagency").collection("user");
-    const makeadmins = client.db("creativeagency").collection("makeadmin");
+    const adminservices = client.db("creativeagency1").collection("Admin");
+    const userreviews = client.db("creativeagency1").collection("Userreview");
+    const userorders = client.db("creativeagency1").collection("User");
+    const makeadmins = client.db("creativeagency1").collection("Makeadmin");
 
     app.post('/addService', (req, res) => {
         const file = req.files.icon;
